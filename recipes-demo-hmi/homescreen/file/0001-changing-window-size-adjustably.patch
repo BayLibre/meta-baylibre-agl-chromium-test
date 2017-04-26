@@ -1,0 +1,28 @@
+From f229418e083669ef3dd1628086b8f2bdee7bb017 Mon Sep 17 00:00:00 2001
+From: Ryo Kodama <ryo.kodama.vz@renesas.com>
+Date: Thu, 20 Apr 2017 11:17:35 +0900
+Subject: [PATCH] changing window size adjustably
+
+Signed-off-by: Ryo Kodama <ryo.kodama.vz@renesas.com>
+---
+ WindowManager/src/windowmanager.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/WindowManager/src/windowmanager.cpp b/WindowManager/src/windowmanager.cpp
+index e7802ca..035fbeb 100644
+--- a/WindowManager/src/windowmanager.cpp
++++ b/WindowManager/src/windowmanager.cpp
+@@ -316,8 +316,8 @@ void WindowManager::configureAppSurface(pid_t pid, t_ilm_surface surface, t_ilm_
+     ilm_surfaceSetDestinationRectangle(surface,
+                                        0,
+                                        TOPAREA_HEIGHT,
+-                                       SCREEN_WIDTH,
+-                                       SCREEN_HEIGHT - TOPAREA_HEIGHT - MEDIAAREA_HEIGHT);
++                                       width,
++                                       height);
+     ilm_surfaceSetSourceRectangle(surface, 0, 0, width, height);
+     ilm_surfaceSetOpacity(surface, 1.0);
+     ilm_surfaceSetVisibility(surface, ILM_TRUE); /* Hack to avoid blank screen when switch apps */
+-- 
+1.9.1
+
